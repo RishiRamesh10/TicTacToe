@@ -6,7 +6,7 @@ import random
 import time
 import sys
 
-#--BOARD PARENT CLASS
+#Board Class
 
 class Board:
     def __init__(self, board):
@@ -49,7 +49,8 @@ class Board:
 
 
 # Player Class
-
+#Use super() because the Board class is a super parent class and the Player class uses the Board class
+# Super() allows the child class to use the parent class' init() property
 class Player(Board):
     def __init__(self, board, playerOneName, playerTwoName):
         super().__init__(board)
