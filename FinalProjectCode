@@ -151,7 +151,6 @@ def main():
                     gameIsPlaying = False
                 else:
                     if Board.isBoardFull(theBoard):
-                        Board.drawBoard(theBoard)
                         print('The game is a tie!')
                         break
                     else:
