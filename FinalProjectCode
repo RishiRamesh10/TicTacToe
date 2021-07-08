@@ -8,7 +8,7 @@ from sys import exit
 
 #Board Class
 
-class Board:
+class SqrBoard:
     def __init__(self, board):
         self.board = board
 
@@ -54,7 +54,7 @@ class Board:
 # Player Class
 #Use super() because the Board class is a super parent class and the Player class uses the Board class
 # Super() gives access to methods and properties of a parent class.
-class Player(Board):
+class Player(SqrBoard):
     def __init__(self, board, playerOneName, playerTwoName):
         super().__init__(board)
         self.playerOneName = playerOneName
@@ -142,15 +142,15 @@ def main():
                 print('\nIt\'s ' + playerOneName + '\'s turn...')
                 move = Player.getPlayerMove(theBoard)
                 Player.makeMove(theBoard, playerOneLetter, move)
-                Board.drawBoard(theBoard)
+                SqrBoard.drawBoard(theBoard)
 
                 if Player.isWinner(theBoard, playerOneLetter):
-                    print('Hooray! ' + playerOneName + ' is the winner!')
+                    print('Nice! ' + playerOneName + ' is the winner!')
                     playerOneScore += 1
                     print(playerOneName + '\'s Score: ' + str(playerOneScore) + '\n' + playerTwoName + '\'s Score: ' + str(playerTwoScore))
                     gameIsPlaying = False
                 else:
-                    if Board.isBoardFull(theBoard):
+                    if SqrBoard.isBoardFull(theBoard):
                         print('The game is a tie!')
                         break
                     else:
@@ -164,12 +164,12 @@ def main():
                 Player.drawBoard(theBoard)
 
                 if Player.isWinner(theBoard, playerTwoLetter):
-                    print('Hooray! ' + playerTwoName + ' is the winner!')
+                    print('Nice! ' + playerTwoName + ' is the winner!')
                     playerTwoScore += 1
                     print(playerOneName + '\'s Score: ' + str(playerOneScore) + '\n' + playerTwoName + '\'s Score: ' + str(playerTwoScore))
                     gameIsPlaying = False
                 else:
-                    if Board.isBoardFull(theBoard):
+                    if SqrBoard.isBoardFull(theBoard):
                         print('The game is a tie!')
                         break
                     else:
